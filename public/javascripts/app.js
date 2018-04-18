@@ -12,7 +12,7 @@ $.ajax('/users', {
 $('#submitBtn').on('click', function(e){
     var name = $('input[name="name"]').val();
     var age = $('input[name="age"]').val();
-    $.ajax('/sendData',{
+    $.ajax('users/sendData',{
         method: "POST",
         contentType: 'application/json',
         data: JSON.stringify({
