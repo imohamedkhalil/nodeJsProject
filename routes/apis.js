@@ -11,9 +11,22 @@ router.get('/', function(req, res, next) {
   })
 });
 
+/* ADD user */
 router.post('/sendData', (req, res, next) => {
   let userObj = User.create(req.body, function(err, user){
     res.json(user);
   });
 });
+
+/* DELETE user */
+router.delete('/delete/:_id', function(req, res, next){
+  User.deleteOne({"_id": req.params._id}, function(err, user){
+      if(!err){
+        res.send(user);
+      } else {
+        console.log("error");
+      }
+    })
+  });
+
 module.exports = router;
